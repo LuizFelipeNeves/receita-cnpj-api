@@ -11,7 +11,7 @@ RUN Rscript -e 'remotes::install_version("torch",upgrade="never", version = "0.2
 RUN Rscript -e 'torch::install_torch()'
 RUN Rscript -e 'remotes::install_github("mlverse/torchvision")'
 RUN Rscript -e 'remotes::install_github("decryptr/captcha@adcb53ce4c77b88dd928d36835ee39c8c636e4b6")'
-RUN Rscript -e "remotes::install_github('LuizFelipeNeves/receita-cnpj-lib@9c29703cdeb2ff11d3accc96b165d042fdd83f6f')"
+RUN Rscript -e "remotes::install_github('LuizFelipeNeves/receita-cnpj-lib@4fe3052b3cbaa3433397ed511d7956543c42947c')"
 
 # copy everything from the current directory into the container
 COPY / /
