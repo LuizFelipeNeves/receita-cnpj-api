@@ -3,6 +3,7 @@ RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-
 RUN echo "options(repos = 'https://packagemanager.rstudio.com/all/__linux__/focal/latest', download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
 RUN R -e 'install.packages("remotes")'
 RUN R -e "install.packages('plumber')"
+RUN R -e "update.packages(ask=FALSE,repos='https://cran-r.c3sl.ufpr.br/',checkBuilt=TRUE,Ncpus=4)"
 RUN Rscript -e 'remotes::install_version("rlang",upgrade="never", version = "0.4.10")'
 RUN Rscript -e 'remotes::install_version("magrittr",upgrade="never", version = "2.0.1")'
 RUN Rscript -e 'remotes::install_version("htmltools",upgrade="never", version = "0.5.1.1")'
