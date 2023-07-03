@@ -17,7 +17,7 @@ RUN Rscript -e "remotes::install_github('LuizFelipeNeves/receita-cnpj-lib@d77db1
 COPY / /
 
 # open port 80 to traffic
-EXPOSE 8000
+EXPOSE 80
 
 # when the container starts, start the main.R script
 ENTRYPOINT ["Rscript", "main.R"]
