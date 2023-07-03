@@ -10,7 +10,7 @@ RUN apt-get install -y libssl-dev libcurl4-gnutls-dev
 RUN R -e "install.packages('plumber')"
 
 RUN R -e "if (!require(devtools)) install.packages('devtools')"
-RUN R -e "devtools::install_github('dfalbel/cnpjReceita')"
+RUN R -e "devtools::install_github('LuizFelipeNeves/receita-cnpj-lib')"
 
 # copy everything from the current directory into the container
 COPY / /
