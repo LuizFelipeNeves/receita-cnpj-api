@@ -14,8 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Cache R packages 
-    - uses: r-lib/actions/cache-r@master
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag lowerman/receita-cnpj-api:$(date +%s)
 
