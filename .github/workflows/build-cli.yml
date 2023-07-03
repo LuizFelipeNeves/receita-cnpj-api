@@ -15,8 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag lowerman/receita-cnpj-api:latest lowerman/receita-cnpj-api:$(date +%s)
-
+      run: |
+        docker build . --file Dockerfile --tag lowerman/receita-cnpj-api:latest
+        docker tag lowerman/receita-cnpj-api:latest lowerman/receita-cnpj-api:$(date +%s)
 
   deploy:
     needs: build
