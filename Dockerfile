@@ -1,5 +1,5 @@
 FROM rocker/r-ver:4.0.3
-RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev libmagick++-dev make pandoc pandoc-citeproc && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libicu-dev libssl-dev libxml2-dev libmagick++-dev make pandoc pandoc-citeproc --fix-missing && rm -rf /var/lib/apt/lists/*
 RUN echo "options(repos = 'https://packagemanager.rstudio.com/all/__linux__/focal/latest', download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
 RUN R -e 'install.packages("remotes")'
 RUN R -e "install.packages('plumber')"
@@ -11,7 +11,7 @@ RUN Rscript -e 'remotes::install_version("torch",upgrade="never", version = "0.2
 RUN Rscript -e 'torch::install_torch()'
 RUN Rscript -e 'remotes::install_github("mlverse/torchvision")'
 RUN Rscript -e 'remotes::install_github("decryptr/captcha@adcb53ce4c77b88dd928d36835ee39c8c636e4b6")'
-RUN Rscript -e "remotes::install_github('LuizFelipeNeves/receita-cnpj-lib@d77db1457463b633d9ab4db6e66df14aaf9b76e4')"
+RUN Rscript -e "remotes::install_github('LuizFelipeNeves/receita-cnpj-lib@607a4865546243febb2145f475658bce4835a958')"
 
 # copy everything from the current directory into the container
 COPY / /
